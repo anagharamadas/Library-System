@@ -3,6 +3,9 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 
+var urlParser = bodyParser.urlencoded({extended:false});
+var path = require('path');
+
 app.use(bodyParser.json());
 
 //Load mongoose
@@ -16,12 +19,20 @@ mongoose.connect("mongodb+srv://test:test@cluster1.zycuz.mongodb.net/booksservic
     console.log("Database is connected");
 });
 
+app.get('/book1',function(req,res) {
+
+    console.log(req.params);
+    res.sendFile(path.join(__dirname,'books.html'));
+    // var d=window.document.getElementById('login_input').reset();
+  
+    console.log(__dirname) });
+
 app.get('/', (req,res) => {
     res.send("The is the books service");
 })
 
 //Create functionality
-app.post("/book", (req, res) => {
+app.post("/book", urlParser,async(req, res) => {
     var newBook = {
         title : req.body.title,
         author : req.body.author,

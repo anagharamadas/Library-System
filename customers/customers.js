@@ -3,7 +3,8 @@ const app = express()
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 
-
+var urlParser = bodyParser.urlencoded({extended:false});
+var path = require('path');
 app.use(bodyParser.json());
 
 //Connect to our database
@@ -13,8 +14,15 @@ mongoose.connect("mongodb+srv://test:test@cluster1.zycuz.mongodb.net/customersse
 //Load our model
 require("./Customer")
 const Customer = mongoose.model("Customer")
+app.get('/customer1',function(req,res) {
 
-app.post("/customer", (req,res) => {
+    console.log(req.params);
+    res.sendFile(path.join(__dirname,'customers.html'));
+    // var d=window.document.getElementById('login_input').reset();
+  
+    console.log(__dirname) });
+
+app.post("/customer", urlParser,async(req,res) => {
     var newCustomer = {
         name : req.body.name,
         age: req.body.age,

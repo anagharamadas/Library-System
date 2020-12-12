@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book management</title>
+</head>
+<body>
+    <h1>Books</h1>
+
+    <h2>Add a book</h2>
+    <form id="create-form" action="http://localhost:4545/book" method="POST">
+        <label for="title-input">Title</label>
+        <input type="text" id="title-input" name="title"/>
+        <br/>
+        <label for="author-input">Author</label>
+        <input type="text" id="author-input" name="author"/>
+        <br/>
+        <label for="publisher-input">Publisher</label>
+        <input type="text" id="publisher-input" name="publisher"/>
+        <br/>
+  <label for="NumberofPages-input">number of Pages</label>
+        <input type="number" id="numberPages" name="numberPages"/>
+        <br/>
+        <input type="submit" value="Create" id="submit-button"/>
+    </form>
+    
+
+</body>
+</html>

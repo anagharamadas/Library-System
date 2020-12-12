@@ -6,6 +6,10 @@ const axios = require("axios")
 
 app.use(bodyParser.json())
 
+
+var urlParser = bodyParser.urlencoded({extended:false});
+var path = require('path');
+
 mongoose.connect("mongodb+srv://test:test@cluster1.zycuz.mongodb.net/ordersservice?retryWrites=true&w=majority", () => {
     console.log("Database connected - Orders")
 })
@@ -13,7 +17,17 @@ mongoose.connect("mongodb+srv://test:test@cluster1.zycuz.mongodb.net/ordersservi
 require("./Order")
 const Order = mongoose.model("Order")
 
-app.post("/order" , (req,res) => {
+
+
+app.get('/order1',function(req,res) {
+
+    console.log(req.params);
+    res.sendFile(path.join(__dirname,'orders.html'));
+    // var d=window.document.getElementById('login_input').reset();
+  
+    console.log(__dirname) });
+
+app.post("/order" , urlParser,async(req,res) => {
     var newOrder = {
         CustomerID: mongoose.Types.ObjectId(req.body.CustomerID),
         BookID: mongoose.Types.ObjectId(req.body.BookID),

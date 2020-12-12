@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Borrow a book!</title>
+</head>
+<body>
+    <h1>Borrow</h1>
+    <h2>Borrow a book</h2>
+    <form id="create-lend-lists" action="http://localhost:7777/order" method="POST">
+        <label for="Customer_id-input">Customer ID</label>
+        <input type="String" id="Customer_id-input" name="CustomerID"/>
+        <br/>
+        <label for="Book_id-input">Book ID</label>
+        <input type="String" id="Book_id-input" name="BookID"/>
+        <br/>
+  <label for="dateBorrowed-input">Date Borrowed</label>
+        <input type="date" id="dateBorrowed-input" name="initialDate"/>
+        <br/>
+  <label for="ExpectedReturn-input">Expected date of return</label>
+        <input type="date" id="ExpectedReturn-input" name="deliveryDate"/>
+        <br/>
+    
+    <input type="submit" value="Create" id="submit-button"/>
+    </form>
+
+</body>
+</html>

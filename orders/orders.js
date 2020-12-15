@@ -26,6 +26,10 @@ app.get('/order1',function(req,res) {
     // var d=window.document.getElementById('login_input').reset();
   
     console.log(__dirname) });
+    
+app.get('/', (req,res) => {
+    res.send("The is the orders service");
+})
 
 app.post("/order" , urlParser,async(req,res) => {
     var newOrder = {

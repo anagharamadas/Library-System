@@ -21,6 +21,10 @@ app.get('/customer1',function(req,res) {
     // var d=window.document.getElementById('login_input').reset();
   
     console.log(__dirname) });
+    
+app.get('/', (req,res) => {
+    res.send("The is the customers service");
+})
 
 app.post("/customer", urlParser,async(req,res) => {
     var newCustomer = {
